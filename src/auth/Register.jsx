@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import RegisterForm from "../components/register/RegisterForm";
 
 import axios from "axios";
+import { json } from "react-router-dom";
 
 async function sendRegisterRequest(name, email, pw) {
     try {
         const axResult = await axios.post(
-            `http://localhost:8000/api/register`,
+            `http://127.0.0.1:3001/api/register`,
             {
                 name,
                 email,
