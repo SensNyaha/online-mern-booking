@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import RegisterForm from "../components/register/RegisterForm";
 
 import axios from "axios";
-import { json } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 async function sendRegisterRequest(name, email, pw) {
     try {
@@ -15,8 +16,9 @@ async function sendRegisterRequest(name, email, pw) {
             }
         );
 
-        console.log(axResult);
+        toast.success(JSON.stringify(axResult.data));
     } catch (e) {
+        toast.error(e.response.data.message);
         console.log(e);
     }
 }
@@ -31,6 +33,7 @@ function Register() {
             <div className="text-center container-fluid bg-secondary p-5">
                 <h1>Registration</h1>
             </div>
+            <ToastContainer />
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 offset-md-3">
