@@ -5,19 +5,21 @@ import Register from "./auth/Register";
 import Home from "./booking/Home";
 import Nav from "./components/navi/Nav";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Nav/>
-      <Routes>
-        <Route exact path="/" Component={Home}/>
-        <Route exact path="/login" Component={Login}/>
-        <Route exact path="/register" Component={Register}/>
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-      </Routes>
-    </BrowserRouter>
-    
-  );
+function App() {
+    return (
+        <BrowserRouter>
+            <Nav />
+            <ToastContainer></ToastContainer>
+            <Routes>
+                <Route exact path="/" Component={Home} />
+                <Route exact path="/login" Component={Login} />
+                <Route exact path="/register" Component={Register} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
